@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moh Afif Widi Agung | Tech Explorer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Variabel Warna & Font */
+        :root {
+            --primary-black: #121212;
+            --primary-white: #ffffff;
+            --accent-blue: #0056b3;
+            --light-gray: #f8f9fa;
+            --dark-gray: #333333;
+            --font-main: 'Poppins', sans-serif;
+        }
+
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--primary-black);
+            background-color: var(--primary-white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        /* Navigasi */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-black);
+        }
+
+        .logo span {
+            color: var(--accent-blue);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Hero Section */
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 10%;
+            background-color: var(--light-gray);
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: var(--dark-gray);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: var(--primary-white);
+            border: 2px solid var(--accent-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-blue);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-black);
+            border: 2px solid var(--primary-black);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+        }
+
+        /* Section Global Styles */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-blue);
+            display: block;
+            margin: 10px auto 0;
+        }
+
+        /* About Section */
+        #about p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: var(--light-gray);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: var(--primary-white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--accent-blue);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 20px;
+            background: var(--primary-white);
+            border-left: 4px solid var(--accent-blue);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            background-color: var(--light-gray);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background: var(--primary-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item h3 {
+            margin-bottom: 10px;
+            color: var(--accent-blue);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .contact-item {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-item i {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            color: var(--primary-black);
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-black);
+            color: var(--primary-white);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        /* Responsif (Mobile Friendly) */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .nav-links {
+                margin-top: 15px;
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .btn-group {
+                flex-direction: column;
+            }
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Afif<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <div class="hero-content">
+            <h1>Moh Afif Widi Agung</h1>
+            <h2>“Exploring Technology, Building Real Experience”</h2>
+            <p>Individu dengan latar belakang administrasi negara yang berfokus pada teknologi, analisis digital, dan solusi berbasis data serta praktik nyata.</p>
+            <div class="btn-group">
+                <a href="#portfolio" class="btn btn-primary">Lihat Portofolio</a>
+                <a href="#contact" class="btn btn-outline">Hubungi Saya</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">Tentang Saya</h2>
+        <div style="max-width: 800px; margin: 0 auto;">
+            <p>Saya adalah lulusan Sarjana Administrasi Negara yang memiliki minat besar dalam perkembangan teknologi dan analisis data. Saya terbiasa menggabungkan pendekatan akademis dengan praktik langsung di lapangan maupun dunia digital.</p>
+            <p>Fokus saya meliputi eksplorasi teknologi digital (airdrop, testnet, validator), pemahaman geospasial, serta analisis sektor perkebunan kelapa sawit berdasarkan standar ISPO dan RSPO melalui pemetaan.</p>
+            <p>Selain itu, pengalaman saya di sektor perbankan telah membentuk kemampuan komunikasi, negosiasi, serta pemahaman terhadap kebutuhan klien.</p>
+            <p>Saya percaya bahwa integrasi antara analisis, teknologi, dan komunikasi adalah kunci untuk menghadapi tantangan di era digital saat ini.</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Keahlian</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-brands fa-ethereum"></i>
+                <h3>Eksplorasi Digital</h3>
+                <p>Airdrop, Testnet, dan setup Validator.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h3>Analisis Data Dasar</h3>
+                <p>Pengolahan dan interpretasi data fundamental.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <h3>Geospasial & Pemetaan</h3>
+                <p>Analisis Perkebunan Sawit (ISPO & RSPO Mapping).</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-microchip"></i>
+                <h3>AI & Jaringan</h3>
+                <p>Pemanfaatan tools AI dan optimalisasi jaringan.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-desktop"></i>
+                <h3>Hardware PC</h3>
+                <p>Perakitan dan optimasi performa PC.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-comments"></i>
+                <h3>Komunikasi & Negosiasi</h3>
+                <p>Kemampuan komunikasi profesional & Problem Solving.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2 class="section-title">Pengalaman & Aktivitas</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Analisis Geospasial & Pemetaan</h3>
+                <p>Melakukan analisis kebun kelapa sawit berbasis pemetaan sesuai standar ISPO dan RSPO serta mengaplikasikan konsep geospasial dalam analisis wilayah.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Eksplorasi Teknologi Blockchain</h3>
+                <p>Aktif dalam eksplorasi teknologi digital seperti airdrop dan testnet sebagai wadah pembelajaran ekosistem blockchain secara langsung.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Sektor Perbankan</h3>
+                <p>Pengalaman profesional di sektor perbankan dalam bidang pemasaran dan pelayanan nasabah, melatih komunikasi dan pemahaman klien.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Riset AI & Jaringan</h3>
+                <p>Secara aktif mempelajari serta menguji berbagai perangkat/tools berbasis AI dan teknologi jaringan, serta melakukan pembelajaran mandiri berkelanjutan di bidang analisis.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="section-title">Portofolio</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <h3>Pemetaan ISPO/RSPO</h3>
+                <p>Proyek analisis dan pemetaan kebun sawit untuk memenuhi standar berkelanjutan ISPO dan RSPO.</p>
+            </div>
+            <div class="portfolio-item">
+                <h3>Web3 Exploration</h3>
+                <p>Dokumentasi aktivitas partisipasi pada berbagai jaringan testnet dan airdrop kripto/blockchain.</p>
+            </div>
+            <div class="portfolio-item">
+                <h3>PC Build & Optimization</h3>
+                <p>Proyek setup, perakitan, dan optimalisasi PC untuk kebutuhan performa tinggi (analisis & validator).</p>
+            </div>
+            <div class="portfolio-item">
+                <h3>AI Integration</h3>
+                <p>Eksperimen pengaplikasian penggunaan AI dan tools digital untuk meningkatkan efisiensi alur kerja.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Hubungi Saya</h2>
+        <div class="contact-content">
+            <p>Tertarik untuk berdiskusi lebih lanjut tentang teknologi, analisis, atau kolaborasi? Jangan ragu untuk menghubungi saya.</p>
+            
+            <a href="mailto:widiafif517@gmail.com" class="contact-item">
+                <i class="fa-solid fa-envelope"></i> widiafif517@gmail.com
+            </a>
+            
+            <a href="https://wa.me/6285751574574" target="_blank" class="contact-item">
+                <i class="fa-brands fa-whatsapp"></i> +62 857 5157 4574
+            </a>
+
+            <div class="social-links">
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <span style="font-weight: 600; font-size: 1.2rem; align-self: center;">@afifwidi_</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Moh Afif Widi Agung. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
